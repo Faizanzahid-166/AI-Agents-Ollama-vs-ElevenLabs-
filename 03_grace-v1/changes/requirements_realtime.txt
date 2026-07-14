@@ -1,0 +1,21 @@
+# ── Grace v3 Realtime Upgrade — NEW dependencies ──────────────────────────────
+# Run: pip install -r requirements_realtime.txt
+# These ADD to your existing requirements.txt — do not replace it.
+
+# Replaces whisper-cli.exe subprocess calls
+faster-whisper==1.0.3
+
+# Voice Activity Detection (Windows-compatible wheel)
+webrtcvad-wheels==2.0.14
+
+# Already in requirements.txt — confirm versions:
+sounddevice>=0.4.6
+soundfile>=0.12.1
+numpy>=1.26.0
+requests>=2.31.0
+
+# Optional: CUDA support for faster-whisper (skip if CPU-only)
+# pip install torch --index-url https://download.pytorch.org/whl/cu121
+
+# Optional: pyttsx3 TTS fallback if Piper isn't available
+# pip install pyttsx3

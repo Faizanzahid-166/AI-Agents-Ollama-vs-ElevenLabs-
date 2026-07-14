@@ -1,0 +1,52 @@
+{
+  "name": "grace-desktop",
+  "version": "2.0.0",
+  "description": "Grace – Your AI Desktop Assistant",
+  "main": "electron-app/main.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:react\" \"wait-on http://localhost:5173 && electron .\"",
+    "dev:react": "cd frontend-react && npm run dev",
+    "dev:electron": "NODE_ENV=development electron .",
+    "build:react": "cd frontend-react && npm run build",
+    "build": "npm run build:react && electron-builder",
+    "dist": "npm run build"
+  },
+  "build": {
+    "appId": "com.grace.desktop",
+    "productName": "Grace",
+    "copyright": "Copyright © 2025",
+    "directories": {
+      "output": "dist-electron"
+    },
+    "files": [
+      "electron-app/**/*",
+      "frontend-react/dist/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "backend-fastapi",
+        "to": "backend",
+        "filter": ["**/*", "!__pycache__", "!*.pyc", "!.env*", "!venv"]
+      }
+    ],
+    "win": {
+      "target": [{ "target": "nsis", "arch": ["x64"] }],
+      "icon": "electron-app/assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "electron-app/assets/icon.ico",
+      "installerHeaderIcon": "electron-app/assets/icon.ico",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Grace AI"
+    }
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3",
+    "wait-on": "^7.2.0"
+  }
+}

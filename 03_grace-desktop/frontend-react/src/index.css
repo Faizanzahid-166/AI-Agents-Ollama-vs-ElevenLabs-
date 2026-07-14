@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background: #080810;
+  color: #f0eeff;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* Allow text selection inside chat */
+.selectable { user-select: text; }
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #2a2a40; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #3d3d58; }
+
+/* Titlebar drag region */
+.titlebar-drag { -webkit-app-region: drag; }
+.no-drag { -webkit-app-region: no-drag; }
+
+/* Markdown styles inside messages */
+.prose-grace {
+  @apply selectable leading-relaxed;
+}
+.prose-grace p { @apply mb-3 last:mb-0; }
+.prose-grace h1, .prose-grace h2, .prose-grace h3 {
+  @apply font-display font-semibold text-text-primary mb-2 mt-4 first:mt-0;
+}
+.prose-grace h1 { @apply text-xl; }
+.prose-grace h2 { @apply text-lg; }
+.prose-grace h3 { @apply text-base; }
+.prose-grace ul { @apply list-disc pl-5 mb-3 space-y-1; }
+.prose-grace ol { @apply list-decimal pl-5 mb-3 space-y-1; }
+.prose-grace li { @apply text-text-primary; }
+.prose-grace a { @apply text-accent-cyan underline; }
+.prose-grace strong { @apply font-semibold text-text-primary; }
+.prose-grace em { @apply italic text-text-secondary; }
+.prose-grace blockquote {
+  @apply border-l-2 border-accent-violet pl-4 italic text-text-secondary my-3;
+}
+.prose-grace code {
+  @apply font-mono text-sm bg-bg-overlay text-accent-glow px-1.5 py-0.5 rounded;
+}
+.prose-grace pre {
+  @apply my-3 rounded-xl overflow-hidden border border-border-default;
+}
+.prose-grace table { @apply w-full text-sm mb-3; }
+.prose-grace th { @apply bg-bg-overlay px-3 py-2 text-left font-medium text-text-secondary; }
+.prose-grace td { @apply border-t border-border-subtle px-3 py-2; }
+
+/* Voice waveform animation */
+.waveform-bar {
+  animation: waveBar 0.8s ease-in-out infinite;
+}
+.waveform-bar:nth-child(2) { animation-delay: 0.1s; }
+.waveform-bar:nth-child(3) { animation-delay: 0.2s; }
+.waveform-bar:nth-child(4) { animation-delay: 0.3s; }
+.waveform-bar:nth-child(5) { animation-delay: 0.2s; }
+.waveform-bar:nth-child(6) { animation-delay: 0.1s; }
+
+@keyframes waveBar {
+  0%, 100% { transform: scaleY(0.3); }
+  50% { transform: scaleY(1); }
+}
+
+/* Cursor blink for streaming */
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.streaming-cursor::after {
+  content: '▋';
+  animation: cursorBlink 0.7s step-end infinite;
+  color: #a78bfa;
+  margin-left: 1px;
+}

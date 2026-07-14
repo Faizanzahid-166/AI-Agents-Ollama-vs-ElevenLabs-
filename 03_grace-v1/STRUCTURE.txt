@@ -1,0 +1,42 @@
+
+GRACE v3.0 — Pure Python Desktop AI Assistant
+==============================================
+
+grace-v3/
+│
+├── main.py                   # Entry point — boots the app
+│
+├── core/
+│   ├── __init__.py
+│   ├── config.py             # All settings, paths, constants
+│   ├── database.py           # PostgreSQL via psycopg2
+│   ├── models.py             # DB schema creation & queries
+│   ├── llm.py                # Ollama streaming integration
+│   ├── memory.py             # Smart memory: window + semantic recall + summaries
+│   ├── stt.py                # Whisper STT (subprocess wrapper)
+│   └── tts.py                # Piper / pyttsx3 TTS
+│
+├── ui/
+│   ├── __init__.py
+│   ├── app.py                # Root CustomTkinter window
+│   ├── sidebar.py            # Conversation list panel
+│   ├── chat_view.py          # Scrollable message area
+│   ├── input_bar.py          # Input + voice + mode controls
+│   ├── message_bubble.py     # Individual message widget
+│   ├── voice_orb.py          # Animated voice indicator (Canvas)
+│   └── theme.py              # Colors, fonts, style constants
+│
+├── utils/
+│   ├── __init__.py
+│   ├── audio.py              # Audio file helpers, temp management
+│   ├── markdown.py           # Lightweight markdown → styled text
+│   └── logger.py             # Structured logging
+│
+├── assets/
+│   └── (icon.png, etc.)      # App icon (optional)
+│
+├── data/
+│   └── (temp audio files)    # Auto-created at runtime
+│
+├── requirements.txt
+└── .env.example

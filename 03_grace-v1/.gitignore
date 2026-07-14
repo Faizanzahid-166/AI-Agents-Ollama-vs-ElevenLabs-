@@ -1,0 +1,8 @@
+.env
+venv/
+.venv/
+__pycache__/
+
+# Local Whisper model cache (too large for GitHub)
+data/whisper_cache/
+

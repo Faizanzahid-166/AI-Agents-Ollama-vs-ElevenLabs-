@@ -1,0 +1,19 @@
+
+# 04_elevenlabs-voice-demo
+
+# Local environment and virtualenvs
+.env
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Large local model caches and binaries
+03_grace-v1/data/whisper_cache/
+03_grace-v1/data/**/*.bin
+03_grace-v1/data/**/*.safetensors
+03_grace-v1/data/**/*.pt
+03_grace-v1/data/**/*.gguf
+03_grace-v1/data/**/*.onnx
+
+

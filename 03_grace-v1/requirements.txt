@@ -1,0 +1,13 @@
+customtkinter==5.2.2
+Pillow>=10.0.0
+psycopg2-binary>=2.9.9
+requests>=2.31.0
+python-dotenv>=1.0.0
+sounddevice>=0.4.6
+soundfile>=0.12.1
+numpy>=1.26.0
+pydub>=0.25.1
+sentence-transformers>=2.7.0
+# pyttsx3>=2.90      # install separately: pip install pyttsx3
+# torch              # needed by sentence-transformers
+#   CPU-only:  pip install torch --index-url https://download.pytorch.org/whl/cpu

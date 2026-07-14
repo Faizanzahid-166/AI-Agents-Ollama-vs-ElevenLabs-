@@ -1,0 +1,91 @@
+You are a senior software architect and full-stack engineer.
+I want you to design and generate a fully offline Local AI Assistant system (Jarvis-style) that runs on Windows and does NOT use any external APIs (no OpenAI, no Claude, no cloud services).
+The system must work completely offline using local models and local database.
+CORE GOAL:
+Build a desktop/local system that can:
+
+* Talk to me like an AI assistant (offline voice + text)
+* Understand speech using offline STT
+* Respond using offline AI model (local LLM or embeddings + rules)
+* Manage files with full CRUD operations
+* Work with Word (.docx), Excel (.xlsx), PowerPoint (.pptx), and text files (.txt)
+* Create folders anywhere on system
+* Organize files automatically
+* Store memory and history in PostgreSQL database named jarvisg_02_memory
+* Suggest daily tasks like: "What should I do today?" "What are we working on?" "What is my schedule?"
+NO INTERNET / OFFLINE ONLY SYSTEM:
+No OpenAI API No Claude API No external cloud services Everything must run locally on machine
+LOCAL MODELS AVAILABLE:
+Speech to Text (Whisper local binary): D:\07_code_2025\25_MODELS\models\whisper\whisper-bin-x64
+Whisper models: ggml-base.en-q5_1.bin ggml-medium.bin
+Embeddings model: D:\07_code_2025\25_MODELS\models\sentence_transformer
+DATABASE:
+PostgreSQL database name: jarvisg_02_memory
+Must store:
+
+* chat history
+* user commands
+* file operations logs
+* embeddings for memory
+* tasks and reminders
+* user preferences
+SYSTEM FEATURES:
+
+1. Voice Assistant
+
+* Microphone input
+* Speech to text using Whisper
+* Process commands
+* Respond in text (TTS optional later)
+
+1. AI Brain (Offline)
+
+* Local reasoning system using embeddings + retrieval
+* Memory-based context system
+* No API-based LLM allowed
+
+1. File System Agent Must support:
+
+* create file
+* read file
+* update file
+* delete file
+* move file
+* create folders anywhere
+* organize downloads/documents automatically
+File types: txt, docx, xlsx, pptx
+Use Python libraries: os, shutil, python-docx, openpyxl, python-pptx
+
+1. Memory System
+
+* Store all conversations in PostgreSQL
+* Use sentence-transformers for embeddings
+* Perform semantic search over memory
+
+1. Task Manager
+
+* Store daily tasks
+* Suggest what to do today
+* Prioritize tasks
+* Create reminders
+
+1. Command Understanding Examples: "Create a Word file named report" "Move all PDFs to Documents" "What did I work on yesterday?" "Summarize my activities" "What should I do today?" "Clean downloads folder"
+ARCHITECTURE REQUIRED:
+Provide:
+
+* System architecture design
+* Folder structure
+* PostgreSQL schema
+* Python backend structure
+* Core modules: speech_to_text.py file_manager.py memory.py ai_engine.py task_manager.py
+* Example command flow
+* Integration explanation
+REQUIREMENTS:
+
+* Fully offline system
+* No external APIs
+* Production-level modular design
+* Scalable architecture
+* Clean separation of concerns
+FINAL GOAL:
+Create a fully offline Jarvis AI assistant that can talk, remember, and manage my entire computer like a smart assistant.

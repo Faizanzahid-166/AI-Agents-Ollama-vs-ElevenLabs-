@@ -1,0 +1,30 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# JARVIS Offline AI Assistant — Python Dependencies
+# Install with:  pip install -r requirements.txt
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ── Database ─────────────────────────────────────────────────────────────────
+psycopg2-binary>=2.9.9          # PostgreSQL driver (binary = no build needed)
+pgvector>=0.2.4                  # pgvector Python client for vector operations
+
+# ── Embeddings (local sentence-transformer) ───────────────────────────────────
+sentence-transformers>=2.7.0
+torch>=2.0.0                    # CPU-only is fine: pip install torch --index-url https://download.pytorch.org/whl/cpu
+transformers>=4.40.0
+numpy>=1.24.0
+
+# ── Voice / audio ─────────────────────────────────────────────────────────────
+sounddevice>=0.4.6               # microphone recording
+scipy>=1.11.0                    # WAV file I/O helpers
+
+# ── Office file handling ──────────────────────────────────────────────────────
+python-docx>=1.1.0               # Word (.docx) read/write
+openpyxl>=3.1.2                  # Excel (.xlsx) read/write
+python-pptx>=0.6.23              # PowerPoint (.pptx) read/write
+
+# ── Utilities ─────────────────────────────────────────────────────────────────
+python-dotenv>=1.0.0             # load .env for local config
+colorlog>=6.8.0                  # colored console logging (optional)
+
+# ── Optional: Text-to-Speech (TTS) ─────────────────────────────────────────────
+# pip install pyttsx3
