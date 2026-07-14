@@ -1,0 +1,23 @@
+{
+  "name": "elevenlabs-demo-backend",
+  "version": "1.0.0",
+  "description": "Minimal backend for the ElevenLabs Conversational AI voice agent demo - no auth, no database.",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "@elevenlabs/elevenlabs-js": "^2.56.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  },
+  "engines": {
+    "node": ">=18.18.0"
+  }
+}
